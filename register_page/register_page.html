@@ -8,32 +8,48 @@
   </head>
   <body>
     <div class="center">
-      <form action="#" method="post">
+      <form action="#" method="post" id="register_form" class="jumbotron">
+
+        <p class="text-center text-white" style="font-size: 30px;">
+          <b>REGISTER NEW COMPANY</b>
+        </p>
+
+        <hr>
 
         <div class="text-right">
-          Organization Name: <input type="text">
+          <b style="font-style:italic;">Organization Name:</b>
+          <input id="name" type="text" placeholder="Name" required>
           <br><br>
-          Organization Tax Number: <input type="text">
+          <b style="font-style:italic;">Organization Tax Number: </b>
+          <input id="tax_number" type="text" placeholder="Tax Number" required>
           <br><br>
-          Organization E-Mail: <input type="text">
+          <b style="font-style:italic;">Organization E-Mail:</b>
+          <input id="mail" type="text" placeholder="E-Mail" required>
+          <br><br>
+          <b style="font-style:italic;">Organization Password:</b>
+          <input id="password" type="password" placeholder="Password" required>
         </div>
 
+        <hr>
+
         <div class="text-center">
+          <b style="font-style:italic;">Select Organization Type</b>
           <br>
-          Select Organization Type
-          <br>
-          <input type="radio" name="register_type" value="Producer">
+          <input type="radio" name="register_type" value="Producer" required>
           <label for="producer">Producer</label>
           <input type="radio" name="register_type" value="Trader">
           <label for="trader">Trader</label>
         </div>
 
+        <hr>
+
         <div class="text-center">
-          <br>
-          <input type="submit" class="btn-primary rounded rounded" value="Register">
+          <button type="button" name="button" class="btn-secondary rounded text-center" onclick="postJSON()">Register</button>
         </div>
 
       </form>
     </div>
+
+    <script src="../JS/script.js"></script>
   </body>
 </html>

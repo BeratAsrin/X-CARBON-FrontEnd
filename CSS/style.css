@@ -4,3 +4,7 @@
   justify-content: center; /*Aligns horizontally center */
   height: 100vh;
 }
+
+#register_form{
+  background-color: #88B04B;
+}
