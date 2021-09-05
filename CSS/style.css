@@ -8,3 +8,7 @@
 #register_form{
   background-color: #88B04B;
 }
+
+.register_form_hr{
+  border-top: 1px dashed white;
+}
