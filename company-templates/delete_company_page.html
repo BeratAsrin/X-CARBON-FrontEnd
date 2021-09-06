@@ -7,7 +7,8 @@
     <title>Delete Company</title>
   </head>
   <body>
-    <div class="center">
+
+    <div id="delete_form_div" class="center" style="margin: 30px;">
 
       <form id="delete_company_form" class="jumbotron">
         <p class="text-center text-white" style="font-size: 30px;">
@@ -35,12 +36,36 @@
 
         <hr class="special_hr">
         <div class="text-center">
-          <button type="button" class="btn-secondary rounded text-center" name="button" onclick="">Search to Delete</button>
+          <button type="button" class="btn-secondary rounded text-center" name="button" onclick="searchToDelete()">Search to Delete</button>
         </div>
-
 
       </form>
     </div>
 
+
+    <div id="delete_information_div" class="center" style="margin: 30px; display: none;">
+        <div class="jumbotron text-right information_text font-italic" style="background-color: rgba(136, 176, 75);">
+          <p class="text-center text-white" style="font-size: 30px;">ORGANIZATION INFORMATION</p>
+          <hr class="special_hr">
+          <span>Organization ID: <input type="text" id="information_organization_id" value="---" readonly> </span>
+          <br><br>
+          <span>Organization Name: <input type="text" id="information_organization_name" value="---" readonly></span>
+          <br><br>
+          <span>Organization Tax Number: <input type="text" id="information_organization_tax_number" value="---" readonly></span>
+          <br><br>
+          <span>Organization E-Mail: <input type="text" id="information_organization_mail" value="---" readonly></span>
+          <br><br>
+          <span>Organization Type: <input type="text" id="information_organization_type" value="---" readonly></span>
+          <br><br>
+          <hr class="special_hr">
+          <div class="text-center">
+            <button class="btn-secondary rounded" type="button" name="button" onclick="organizationInformationDelete()">Delete</button>
+            <button class="btn-secondary rounded" type="button" name="button" onclick="organizationInformationCancel()">Cancel</button>
+          </div>
+
+        </div>
+    </div>
+
+    <script src="../JS/company_script.js"></script>
   </body>
 </html>

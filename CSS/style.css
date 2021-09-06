@@ -16,3 +16,8 @@
 .special_hr{
   border-top: 1px dashed white;
 }
+
+.information_text{
+  font-size: 20px;
+  font-weight:bold;
+}
