@@ -1,12 +1,12 @@
-function postJSON(){
+function registerNewCompany(){
   // geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/
   // https://stackoverflow.com/questions/24468459/sending-a-json-to-server-and-retrieving-a-json-in-return-without-jquery
- 
+
   let name = document.querySelector("#name").value;
   let taxNumber = document.querySelector("#tax_number").value;
   let mail = document.querySelector("#mail").value;
   let password = document.querySelector("#password").value;
-  
+
   if(name == ""){
     alert("Organization Name is Missing.");
   }
@@ -36,10 +36,19 @@ function postJSON(){
       console.log(xhr.readyState, xhr.status)
 
       if (xhr.readyState == 4 && xhr.status == 200) {
-
+        
         alert(xhr.responseText);
-        document.getElementById("register_form").reset();
-        console.clear();
+        if(xhr.responseText == "Tax number is already exists in database. Try another."){
+          document.querySelector("#tax_number").style.color = "red";
+        }
+        else if(xhr.responseText == "Company could not be registered."){
+
+        }
+        else if(xhr.responseText == "Company is Registered."){
+          document.querySelector("#tax_number").style.color = "black";
+          document.getElementById("register_company_form").reset();
+          console.clear();
+        }
 
       }
 
@@ -52,7 +61,7 @@ function postJSON(){
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
 
     // Converting JSON data to string
-    let data = JSON.stringify({ 
+    let data = JSON.stringify({
       "organizationName": name,
       "taxNumber": taxNumber,
       "mail": mail,
@@ -65,5 +74,4 @@ function postJSON(){
 
   }
 
-  
 }

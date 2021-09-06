@@ -5,10 +5,14 @@
   height: 100vh;
 }
 
-#register_form{
+#register_company_form{
   background-color: #88B04B;
 }
 
-.register_form_hr{
+#delete_company_form{
+  background-color: #88B04B;
+}
+
+.special_hr{
   border-top: 1px dashed white;
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Delete Company</title>
+  </head>
+  <body>
+    <div class="center">
+
+      <form id="delete_company_form" class="jumbotron">
+        <p class="text-center text-white" style="font-size: 30px;">
+          <b>
+            DELETE ORGANIZATION
+          </b>
+          <br>
+          <h5 class="text-center">
+            Please fill at least one of the fields.
+          </h5>
+        </p>
+
+        <hr class="special_hr">
+
+        <div class="text-right">
+          <label for="organization_id" class="font-weight-bold font-italic">Organization ID: </label>
+          <input id="organization_id" class="rounded" type="number" placeholder="ID">
+          <br>
+          <label for="organization_tax_number" class="font-weight-bold font-italic">Organization Tax Number: </label>
+          <input id="organization_tax_number" class="rounded" type="number" placeholder="Tax Number">
+          <br>
+          <label for="organization_name" class="font-weight-bold font-italic">Organization Name: </label>
+          <input id="organization_name" class="rounded" type="text" placeholder="Name">
+        </div>
+
+        <hr class="special_hr">
+        <div class="text-center">
+          <button type="button" class="btn-secondary rounded text-center" name="button" onclick="">Search to Delete</button>
+        </div>
+
+
+      </form>
+    </div>
+
+  </body>
+</html>

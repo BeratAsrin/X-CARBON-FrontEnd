@@ -8,20 +8,20 @@
   </head>
   <body>
     <div class="center">
-      <form id="register_form" class="jumbotron">
+      <form id="register_company_form" class="jumbotron">
 
         <p class="text-center text-white" style="font-size: 30px;">
-          <b>REGISTER NEW COMPANY</b>
+          <b>REGISTER ORGANIZATION</b>
         </p>
 
-        <hr class="register_form_hr">
+        <hr class="special_hr">
 
         <div class="text-right">
           <b style="font-style:italic;">Organization Name:</b>
           <input id="name" class="rounded" type="text" placeholder="Name">
           <br><br>
           <b style="font-style:italic;">Organization Tax Number: </b>
-          <input id="tax_number" class="rounded" type="text" placeholder="Tax Number">
+          <input id="tax_number" class="rounded" type="number" placeholder="Tax Number">
           <br><br>
           <b style="font-style:italic;">Organization E-Mail:</b>
           <input id="mail" class="rounded" type="email" placeholder="E-Mail">
@@ -30,7 +30,7 @@
           <input id="password" class="rounded" type="password" placeholder="Password">
         </div>
 
-        <hr class="register_form_hr">
+        <hr class="special_hr">
 
         <div class="text-center">
           <b style="font-style:italic;">Select Organization Type</b>
@@ -41,15 +41,15 @@
           <label for="trader">Trader</label>
         </div>
 
-        <hr class="register_form_hr">
+        <hr class="special_hr">
 
         <div class="text-center">
-          <button type="button" name="button" class="btn-secondary rounded text-center" onclick="postJSON()">Register</button>
+          <button type="button" name="button" class="btn-secondary rounded text-center" onclick="registerNewCompany()">Register</button>
         </div>
 
       </form>
     </div>
 
-    <script src="../JS/script.js"></script>
+    <script src="../JS/company_script.js"></script>
   </body>
 </html>
