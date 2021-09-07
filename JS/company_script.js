@@ -76,18 +76,96 @@ function registerNewCompany(){
 
 }
 
+function getCompany(organizationId,organizationTaxNumber,organizationName){
+  
+  let url = "http://localhost:8080/company/get/";
+
+  if(organizationId != ""){
+    url += "id="+organizationId;
+  }
+  else if(organizationTaxNumber != ""){
+    url += "taxnumber="+organizationTaxNumber;
+  }
+  else{
+    url += "name="+organizationName;
+  }
+
+  let xhr = new XMLHttpRequest();
+  
+  xhr.onreadystatechange = function () {
+    console.log(xhr.readyState, xhr.status)
+
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      
+      
+      if(xhr.responseText == ""){
+        alert("There is no company registered with the given information.");
+      }
+      else{
+        let company = JSON.parse(xhr.responseText);
+        document.getElementById("information_organization_id").value = company.id;
+        document.getElementById("information_organization_name").value = company.organizationName;
+        document.getElementById("information_organization_tax_number").value = company.taxNumber;
+        document.getElementById("information_organization_mail").value = company.mail;
+        document.getElementById("information_organization_type").value = company.registerType;
+        document.getElementById("delete_form_div").style.display = "none";
+        document.getElementById("delete_information_div").style.display = "flex";
+      }
+      
+    }
+    
+  }
+
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
+  xhr.send();
+  
+}
 
 function searchToDelete(){
-  document.getElementById("delete_form_div").style.display = "none";
-  document.getElementById("delete_information_div").style.display = "flex";
+
+  let organizationId = document.getElementById("organization_id").value;
+  let organizationTaxNumber = document.getElementById("organization_tax_number").value;
+  let organizationName = document.getElementById("organization_name").value;
+
+  if(organizationId == "" && organizationTaxNumber == "" && organizationName == ""){
+    alert("Please enter at least one information about company.")
+  }
+  else{
+    getCompany(organizationId, organizationTaxNumber, organizationName);
+  } 
 }
 
 function organizationInformationCancel(){
+  document.getElementById("organization_id").value = "";
+  document.getElementById("organization_tax_number").value = "";
+  document.getElementById("organization_name").value = "";
   document.getElementById("delete_information_div").style.display = "none";
   document.getElementById("delete_form_div").style.display = "flex";
 }
 
 function organizationInformationDelete(){
+  let organizationId = document.getElementById("information_organization_id").value;
+  let url = `http://localhost:8080/company/delete/id=${organizationId}`;
+  let xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function () {
+    console.log(xhr.readyState, xhr.status)
+
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if(Boolean(xhr.response)){
+        alert("Organization is deleted.");
+      }
+      else{
+        alert("An error occurred, organization could not be deleted.")
+      }
+    }
+    
+  }
+
+  xhr.open("DELETE", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
+  xhr.send();
   
 }
 
