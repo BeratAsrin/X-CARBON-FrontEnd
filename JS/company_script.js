@@ -1,3 +1,15 @@
+// dataUrl is used to determine the source of database. 
+var isLocal = false;
+var dataUrl; 
+var ipOfDevice = "111.111.1.1";
+if(isLocal == true){
+  dataUrl = `${ipOfDevice}:8080`; // while not working on local
+  // default port of tomcat is 8080.
+}
+else{
+  dataUrl = "localhost:8080"; // localhost
+}
+
 function registerNewCompany(){
   // geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/
   // https://stackoverflow.com/questions/24468459/sending-a-json-to-server-and-retrieving-a-json-in-return-without-jquery
@@ -30,7 +42,7 @@ function registerNewCompany(){
     console.log(name,taxNumber,mail,password,registerType);
     // Create new xhr object
     let xhr = new XMLHttpRequest();
-    let url = "http://localhost:8080/company/register";
+    let url = `http://${dataUrl}/company/register`;
 
     xhr.onreadystatechange = function () {
       console.log(xhr.readyState, xhr.status)
@@ -78,7 +90,7 @@ function registerNewCompany(){
 
 function getCompany(organizationId,organizationTaxNumber,organizationName){
   
-  let url = "http://localhost:8080/company/get/";
+  let url = `http://${dataUrl}/company/get/`;
 
   if(organizationId != ""){
     url += "id="+organizationId;
@@ -146,7 +158,7 @@ function organizationInformationCancel(){
 
 function organizationInformationDelete(){
   let organizationId = document.getElementById("information_organization_id").value;
-  let url = `http://localhost:8080/company/delete/id=${organizationId}`;
+  let url = `http://${dataUrl}/company/delete/id=${organizationId}`;
   let xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
@@ -169,19 +181,22 @@ function organizationInformationDelete(){
   
 }
 
-
+var pageNumber = 0;
+var organizations = [];
 function getOrganizations(){
-  let url = "http://localhost:8080/company/getall";
+  console.log(pageNumber);
+  let organizationsTable = document.getElementById("organizations_table_body");
+  organizationsTable.innerHTML = "";
+
+  let url = `http://${dataUrl}/company/getall`;
   let xhr = new XMLHttpRequest();
-  let organizations = [];
+
   xhr.onreadystatechange = function () {
     console.log(xhr.readyState, xhr.status)
 
     if (xhr.readyState == 4 && xhr.status == 200) {
-      
-      organizations = JSON.parse(xhr.responseText);
-      organizations.forEach(element => {
-        let organizationsTable = document.getElementById("organizations_table_body");
+      organizations = JSON.parse(xhr.responseText);      
+      organizations.slice(pageNumber*10,pageNumber*10+10).forEach(element => {
         let lastRow = organizationsTable.insertRow(-1);
         let organizationId = lastRow.insertCell(0);
         organizationId.innerHTML = element.id;
@@ -194,6 +209,7 @@ function getOrganizations(){
         let type = lastRow.insertCell(4);
         type.innerHTML = element.registerType;
       });
+   
     }
     
   }
@@ -203,88 +219,30 @@ function getOrganizations(){
   xhr.send();
  
 }
-/*
-var asideItems = [
-  {
-    text: "anasayfa",
-    value: "index.html",
-    onclick: "",
-  },
-  {
-    text: "hakkımızda",
-    value: "delete_company_page.html",
-    onclick: "",
-    subs: [
-      {
-        text: "hak 1",
-        value: "javascript:void(0)",
-        onclick: "organizationInformationCancel()",
-      },
-      {
-        text: "hak 2",
-        value: "javascript:void(0)",
-        onclick: "searchToDelete()",
-      },
-    ]
-  },
-  {
-    text: "kurumsal",
-    value: "javascript:void(0)",
-    onclick: "searchToDelete()",
-    subs: [],
-  },
-  {
-    text: "galeri",
-    value: "javascript:void(0)",
-    onclick: "searchToDelete()",
-  },
-]
 
 
-
-var asideUl = document.getElementById('sideNav');
-
-if(asideUl){
-  asideItems.map(function(v){
-
-    if(v.subs){
-      var subs = '';
-      v.subs.map(function(s){
-
-        subs += '<li><a href='+s.value+' onclick='+s.onclick+'>'+s.text+'</a></li>'
-      })
-
-      if(window.location.pathname.split("/").pop() == v.value){
-        asideUl.innerHTML += '<li><a href='+v.value+' onclick='+v.onclick+'>'+v.text+'</a><ul>'+subs+'</ul></li>';
-      }
-      else {
-        asideUl.innerHTML += '<li><a href='+v.value+' onclick='+v.onclick+'>'+v.text+'</a></li>';
-
-      }
-      
-
-    }
-    else {
-      asideUl.innerHTML += '<li><a href='+v.value+' onclick='+v.onclick+'>'+v.text+'</a></li>';
-
-    }
-  })
+function nextPage(){
+ if(organizations.length == 0){
+  alert("No data.")
+ }
+ else if(!(pageNumber*10+10 > organizations.length)){
+   pageNumber++;
+   getOrganizations();
+ }
+ else{
+   alert("You are viewing last page.")
+ }
 }
 
-
-function delay(ms){
-  return new Promise(function(resolve,reject){
-    setTimeout(resolve, ms)
-  })
+function previousPage(){
+  if(organizations.length == 0){
+    alert("No data.")
+   }
+  else if(pageNumber != 0){
+    pageNumber--;
+    getOrganizations();
+  }
+  else{
+    alert("You are viewing first page.")
+  }
 }
-
-
-var test = async function(){
-  console.log('direk girdim');
-  await delay(5000);
-  console.log('1 sn sonra geldim')
-  await delay(5000);
-  console.log('1 sn sonra geldim')
-
-} 
-*/

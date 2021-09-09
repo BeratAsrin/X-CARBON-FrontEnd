@@ -21,3 +21,25 @@
   font-size: 20px;
   font-weight:bold;
 }
+
+#navigation_bar{
+  background-color: #88B04B;
+  padding-left: 0px;
+  margin: 0px;
+  height: 100vh;
+}
+
+#navigation_bar_ul{
+  color: white;
+  font-weight: bold;
+  padding-left: 5px;
+  list-style-type:none;
+}
+
+#navigation_bar_ul li{
+  list-style-type:none;
+}
+
+#navigation_bar_ul li a{
+  color: white;
+}

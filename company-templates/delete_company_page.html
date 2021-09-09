@@ -8,63 +8,79 @@
   </head>
   <body>
 
-    <div id="delete_form_div" class="center">
+    <div class="center" style="display: flex;">
 
-      <form id="delete_company_form" class="jumbotron">
-        <p class="text-center text-white" style="font-size: 30px;">
-          <b>
-            DELETE ORGANIZATION
-          </b>
-          <br>
-          <h5 class="text-center">
-            Please fill at least one of the fields.
-          </h5>
-        </p>
+      <aside id="navigation_bar" class="jumbotron">
+        <ul id="navigation_bar_ul">
+          <script src="../JS/navigation_bar_script.js"></script>
+        </ul>
+      </aside>
 
-        <hr class="special_hr">
+      <div id="delete_form_div" class="center" style="flex-grow:1;">
 
-        <div class="text-right">
-          <label for="organization_id" class="font-weight-bold font-italic">Organization ID: </label>
-          <input id="organization_id" class="rounded" type="number" placeholder="ID">
-          <br>
-          <label for="organization_tax_number" class="font-weight-bold font-italic">Organization Tax Number: </label>
-          <input id="organization_tax_number" class="rounded" type="number" placeholder="Tax Number">
-          <br>
-          <label for="organization_name" class="font-weight-bold font-italic">Organization Name: </label>
-          <input id="organization_name" class="rounded" type="text" placeholder="Name">
-        </div>
+        <form id="delete_company_form" class="jumbotron" style="margin:0px;">
+          <p class="text-center text-white" style="font-size: 30px;">
+            <b>
+              DELETE ORGANIZATION
+            </b>
+            <br>
+            <h5 class="text-center">
+              Please fill at least one of the fields.
+            </h5>
+          </p>
 
-        <hr class="special_hr">
-        <div class="text-center">
-          <button type="button" class="btn-secondary rounded text-center" name="button" onclick="searchToDelete()">Search to Delete</button>
-        </div>
-
-      </form>
-    </div>
-
-
-    <div id="delete_information_div" class="center" style="display: none;">
-        <div class="jumbotron text-right information_text font-italic" style="background-color: rgba(136, 176, 75);">
-          <p class="text-center text-white" style="font-size: 30px;">ORGANIZATION INFORMATION</p>
           <hr class="special_hr">
-          <span>Organization ID: <input type="text" id="information_organization_id" value="---" readonly> </span>
-          <br><br>
-          <span>Organization Name: <input type="text" id="information_organization_name" value="---" readonly></span>
-          <br><br>
-          <span>Organization Tax Number: <input type="text" id="information_organization_tax_number" value="---" readonly></span>
-          <br><br>
-          <span>Organization E-Mail: <input type="text" id="information_organization_mail" value="---" readonly></span>
-          <br><br>
-          <span>Organization Type: <input type="text" id="information_organization_type" value="---" readonly></span>
-          <br>
-          <hr class="special_hr">
-          <div class="text-center">
-            <button class="btn-secondary rounded" type="button" name="button" onclick="organizationInformationDelete()">Delete</button>
-            <button class="btn-secondary rounded" type="button" name="button" onclick="organizationInformationCancel()">Cancel</button>
+
+          <div class="text-right">
+            <label for="organization_id" class="font-weight-bold font-italic">Organization ID: </label>
+            <input id="organization_id" class="rounded" type="number" placeholder="ID">
+            <br>
+            <label for="organization_tax_number" class="font-weight-bold font-italic">Organization Tax Number: </label>
+            <input id="organization_tax_number" class="rounded" type="number" placeholder="Tax Number">
+            <br>
+            <label for="organization_name" class="font-weight-bold font-italic">Organization Name: </label>
+            <input id="organization_name" class="rounded" type="text" placeholder="Name">
           </div>
 
-        </div>
+          <hr class="special_hr">
+          <div class="text-center">
+            <button type="button" class="btn-secondary rounded text-center" name="button" onclick="searchToDelete()">Search to Delete</button>
+          </div>
+
+        </form>
+      </div>
+
+      <div id="delete_information_div" class="center" style="display: none; flex-grow:1;">
+          <div class="jumbotron text-right information_text font-italic" style="background-color: rgba(136, 176, 75);">
+            <p class="text-center text-white" style="font-size: 30px;">ORGANIZATION INFORMATION</p>
+            <hr class="special_hr">
+            <span>Organization ID: <input type="text" id="information_organization_id" value="---" readonly> </span>
+            <br><br>
+            <span>Organization Name: <input type="text" id="information_organization_name" value="---" readonly></span>
+            <br><br>
+            <span>Organization Tax Number: <input type="text" id="information_organization_tax_number" value="---" readonly></span>
+            <br><br>
+            <span>Organization E-Mail: <input type="text" id="information_organization_mail" value="---" readonly></span>
+            <br><br>
+            <span>Organization Type: <input type="text" id="information_organization_type" value="---" readonly></span>
+            <br>
+            <hr class="special_hr">
+            <div class="text-center">
+              <button class="btn-secondary rounded" type="button" name="button" onclick="organizationInformationDelete()">Delete</button>
+              <button class="btn-secondary rounded" type="button" name="button" onclick="organizationInformationCancel()">Cancel</button>
+            </div>
+
+          </div>
+      </div>
+
     </div>
+
+
+
+
+
+
+
 
     <script src="../JS/company_script.js"></script>
   </body>

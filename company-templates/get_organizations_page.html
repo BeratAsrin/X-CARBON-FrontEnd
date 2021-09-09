@@ -6,39 +6,46 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <title>Organizations</title>
   </head>
-  <body onload="getOrganizations()">
-    <div class="center">
-      <div class="jumbotron" style="background-color: #88B04B;">
-        <p class="text-center text-white" style="font-size: 30px;">
-          <b>
-            ORGANIZATIONS
-          </b>
-        </p>
-        <hr class="special_hr">
-        <h5 class="text-center">Organizations registered in the database are listed below.</h5>
-        <table id="organizations_table" class="table text-center">
-          <thead>
-            <tr>
-              <th>Organization Id</th>
-              <th>Organization Name</th>
-              <th>Tax Number</th>
-              <th>E-Mail</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <tbody id="organizations_table_body" class="text-white">
-          <!--
-            function getOrganizations()'dan geliyor datalar.
-            -->
-          </tbody>
-        </table>
-        <div class="text-center">
-          <button class="rounded btn-secondary" type="button" name="button">Previous Page</button>
-          <button class="rounded btn-secondary" type="button" name="button">Next Page</button>
-        </div>
+  <body onload="getOrganizations()" style="display:flex;">
 
+    <aside id="navigation_bar" class="jumbotron">
+      <ul id="navigation_bar_ul">
+        <script src="../JS/navigation_bar_script.js"></script>
+      </ul>
+    </aside>
+
+    <div class="jumbotron" style="background-color: #88B04B; margin: 50px; padding: 15px; flex-grow:1;">
+      <p class="text-center text-white" style="font-size: 30px;">
+        <b>
+          ORGANIZATIONS
+        </b>
+      </p>
+      <hr class="special_hr">
+      <h5 class="text-center">Organizations registered in the database are listed below.</h5>
+      <table id="organizations_table" class="table text-center">
+        <thead>
+          <tr>
+            <th>Organization Id</th>
+            <th>Organization Name</th>
+            <th>Tax Number</th>
+            <th>E-Mail</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody id="organizations_table_body" class="text-white">
+        <!--
+          function getOrganizations()'dan geliyor datalar.
+          -->
+        </tbody>
+      </table>
+      <hr class="special_hr">
+      <div class="text-center">
+        <button class="rounded btn-secondary" style="width:15vw" type="button" name="button" onclick="previousPage()">Previous Page</button>
+        <button class="rounded btn-secondary" style="width:15vw" type="button" name="button" onclick="nextPage()">Next Page</button>
       </div>
+
     </div>
     <script src="../JS/company_script.js"></script>
+
   </body>
 </html>
