@@ -169,6 +169,40 @@ function organizationInformationDelete(){
   
 }
 
+
+function getOrganizations(){
+  let url = "http://localhost:8080/company/getall";
+  let xhr = new XMLHttpRequest();
+  let organizations = [];
+  xhr.onreadystatechange = function () {
+    console.log(xhr.readyState, xhr.status)
+
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      
+      organizations = JSON.parse(xhr.responseText);
+      organizations.forEach(element => {
+        let organizationsTable = document.getElementById("organizations_table_body");
+        let lastRow = organizationsTable.insertRow(-1);
+        let organizationId = lastRow.insertCell(0);
+        organizationId.innerHTML = element.id;
+        let organizationName = lastRow.insertCell(1);
+        organizationName.innerHTML = element.organizationName;
+        let taxNumber = lastRow.insertCell(2);
+        taxNumber.innerHTML = element.taxNumber;
+        let mail = lastRow.insertCell(3);
+        mail.innerHTML = element.mail;
+        let type = lastRow.insertCell(4);
+        type.innerHTML = element.registerType;
+      });
+    }
+    
+  }
+
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
+  xhr.send();
+ 
+}
 /*
 var asideItems = [
   {
