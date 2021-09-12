@@ -7,7 +7,35 @@
     <title>Delete Company</title>
   </head>
   <body>
-    
+
+    <script type="text/javascript">
+
+      let username = sessionStorage.getItem("username");
+      let password = sessionStorage.getItem("password");
+
+      if(
+          sessionStorage.getItem("isItAdmin") == null
+          ||
+          sessionStorage.getItem("isItAdmin") == false
+          ||
+          username == null
+          ||
+          password == null
+      ){
+        window.location.href = "../login-template/login_page.html";
+      }
+      else if(
+        sessionStorage.getItem("isItAdmin" == "false")
+        &&
+        username != null
+        &&
+        password != null
+      ){
+        // burada kullanıcı gırısı dogru mu dıye kontrol yapılacak.
+      }
+
+    </script>
+
     <div class="center" style="display: flex;">
 
       <aside id="navigation_bar" class="jumbotron">

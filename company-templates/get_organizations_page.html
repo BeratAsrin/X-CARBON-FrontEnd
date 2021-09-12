@@ -8,6 +8,22 @@
   </head>
   <body onload="getOrganizations()" style="display:flex;">
 
+    <script type="text/javascript">
+
+      if(
+          sessionStorage.getItem("isItAdmin") == null
+          ||
+          sessionStorage.getItem("isItAdmin") == false
+          ||
+          sessionStorage.getItem("username") == null
+          ||
+          sessionStorage.getItem("password") == null
+      ){
+        window.location.href = "../login-template/login_page.html";
+      } // else if içinde username ve password dogru mu diye kontrol edilecek
+
+    </script>
+
     <aside id="navigation_bar" class="jumbotron">
       <ul id="navigation_bar_ul">
         <script src="../JS/navigation_bar_script.js"></script>

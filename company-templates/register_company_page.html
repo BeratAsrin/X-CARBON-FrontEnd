@@ -7,6 +7,23 @@
     <title>Register</title>
   </head>
   <body>
+
+    <script type="text/javascript">
+
+      if(
+          sessionStorage.getItem("isItAdmin") == null
+          ||
+          sessionStorage.getItem("isItAdmin") == false
+          ||
+          sessionStorage.getItem("username") == null
+          ||
+          sessionStorage.getItem("password") == null
+      ){
+        window.location.href = "../login-template/login_page.html";
+      } // else if içinde username ve password dogru mu diye kontrol edilecek
+
+    </script>
+
     <div style="display: flex;">
 
       <aside id="navigation_bar" class="jumbotron">

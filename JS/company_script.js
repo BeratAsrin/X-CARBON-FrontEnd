@@ -129,7 +129,7 @@ function getCompany(organizationId,organizationTaxNumber,organizationName){
   }
 
   xhr.open("GET", url, true);
-  xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
+  //xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
   xhr.send();
 
 }
