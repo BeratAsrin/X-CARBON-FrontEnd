@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="center" style="background: #F7CAC9;">
+      <div class="jumbotron" style="width: 50vw; background: inherit;">
+        <form id="login_form" class="text-center">
+          <h1>Login</h1>
+          <hr style="border-top: 1px solid black;">
+
+          <div id="login_selection_div" style="display:flex;
+          justify-content:space-evenly">
+            <button type="button" class="btn-primary rounded"
+            style="width: 45%" onclick="whoIsLogining('true')">Admin Login</button>
+            <button type="button" class="btn-primary rounded" style="width: 45%"
+            onclick="whoIsLogining('false')">
+            Organization Login</button>
+          </div>
+
+          <div id="login_information_getter_div" style="display: none;">
+            <input type="text" id="username" placeholder="Username" style="width: 90%">
+            <br><br>
+            <input type="password" id="password" placeholder="Password" style="width: 90%">
+            <br><br>
+
+            <div style="display:flex;
+            justify-content:space-evenly">
+              <button type="button" class="btn-secondary rounded"
+              style="width: 40%" onclick="postLoginInformation()">Login</button>
+              <button type="button" class="btn-secondary rounded"
+              style="width: 40%" onclick="cancelButton()">Cancel</button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <script src="../JS/login_script.js"></script>
+  </body>
+</html>

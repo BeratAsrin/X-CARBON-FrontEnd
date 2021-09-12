@@ -1,8 +1,8 @@
-// dataUrl is used to determine the source of database. 
-var isLocal = false;
-var dataUrl; 
+// dataUrl is used to determine the source of database.
+var isLocal = true;
+var dataUrl;
 var ipOfDevice = "111.111.1.1";
-if(isLocal == true){
+if(isLocal == false){
   dataUrl = `${ipOfDevice}:8080`; // while not working on local
   // default port of tomcat is 8080.
 }
@@ -48,7 +48,7 @@ function registerNewCompany(){
       console.log(xhr.readyState, xhr.status)
 
       if (xhr.readyState == 4 && xhr.status == 200) {
-        
+
         alert(xhr.responseText);
         if(xhr.responseText == "Tax number is already exists in database. Try another."){
           document.querySelector("#tax_number").style.color = "red";
@@ -89,7 +89,7 @@ function registerNewCompany(){
 }
 
 function getCompany(organizationId,organizationTaxNumber,organizationName){
-  
+
   let url = `http://${dataUrl}/company/get/`;
 
   if(organizationId != ""){
@@ -103,13 +103,13 @@ function getCompany(organizationId,organizationTaxNumber,organizationName){
   }
 
   let xhr = new XMLHttpRequest();
-  
+
   xhr.onreadystatechange = function () {
     console.log(xhr.readyState, xhr.status)
 
     if (xhr.readyState == 4 && xhr.status == 200) {
-      
-      
+
+
       if(xhr.responseText == ""){
         alert("There is no company registered with the given information.");
       }
@@ -123,15 +123,15 @@ function getCompany(organizationId,organizationTaxNumber,organizationName){
         document.getElementById("delete_form_div").style.display = "none";
         document.getElementById("delete_information_div").style.display = "flex";
       }
-      
+
     }
-    
+
   }
 
   xhr.open("GET", url, true);
   xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
   xhr.send();
-  
+
 }
 
 function searchToDelete(){
@@ -145,7 +145,7 @@ function searchToDelete(){
   }
   else{
     getCompany(organizationId, organizationTaxNumber, organizationName);
-  } 
+  }
 }
 
 function organizationInformationCancel(){
@@ -172,13 +172,13 @@ function organizationInformationDelete(){
         alert("An error occurred, organization could not be deleted.")
       }
     }
-    
+
   }
 
   xhr.open("DELETE", url, true);
   xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
   xhr.send();
-  
+
 }
 
 var pageNumber = 0;
@@ -195,7 +195,7 @@ function getOrganizations(){
     console.log(xhr.readyState, xhr.status)
 
     if (xhr.readyState == 4 && xhr.status == 200) {
-      organizations = JSON.parse(xhr.responseText);      
+      organizations = JSON.parse(xhr.responseText);
       organizations.slice(pageNumber*10,pageNumber*10+10).forEach(element => {
         let lastRow = organizationsTable.insertRow(-1);
         let organizationId = lastRow.insertCell(0);
@@ -209,15 +209,15 @@ function getOrganizations(){
         let type = lastRow.insertCell(4);
         type.innerHTML = element.registerType;
       });
-   
+
     }
-    
+
   }
 
   xhr.open("GET", url, true);
   xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8");
   xhr.send();
- 
+
 }
 
 
