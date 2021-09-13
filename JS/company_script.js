@@ -1,14 +1,4 @@
-// dataUrl is used to determine the source of database.
-var isLocal = true;
-var dataUrl;
-var ipOfDevice = "111.111.1.1";
-if(isLocal == false){
-  dataUrl = `${ipOfDevice}:8080`; // while not working on local
-  // default port of tomcat is 8080.
-}
-else{
-  dataUrl = "localhost:8080"; // localhost
-}
+let dataUrl = sessionStorage.getItem("dataUrl");
 
 function registerNewCompany(){
   // geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/

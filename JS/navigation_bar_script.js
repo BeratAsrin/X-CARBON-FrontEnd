@@ -1,7 +1,15 @@
 var links = [
     {
+        parentText: "Home Page",
+        show: true,
+        link: "../main-template/main_page.html",
+        subs: [
+        ]
+    },
+    {
         parentText: "Organizations",
         show: true,
+        link: "",
         subs: [
             {
                 childText: "Register Organization",
@@ -21,6 +29,7 @@ var links = [
     {
         parentText: "Carbon Market",
         show: true,
+        link: "",
         subs: [
             {
                 childText: "Market Place",
@@ -35,11 +44,18 @@ var links = [
                 link: "#"
             }
         ]
+    },
+    {
+        parentText: "Exit",
+        show: true,
+        link: "../login-template/login_page.html",
+        subs: [
+        ]
     }
 ];
 
 if(sessionStorage.getItem("isItAdmin") == "false"){ // localStorage stores the data in string format
-  links[0].show = false;
+  links[1].show = false;
 }
 
 let listUl = document.getElementById("navigation_bar_ul");
@@ -53,7 +69,13 @@ links.forEach(element => {
       });
       subContent += "</ul>";
     }
-    listUl.innerHTML += `<li>${element.parentText} ${subContent}</li>`;
+    if(element.link != ""){
+      listUl.innerHTML += `<li><a href="${element.link}">${element.parentText} ${subContent}</li>`;
+    }
+    else{
+      listUl.innerHTML += `<li>${element.parentText} ${subContent}</li>`;
+    }
+
   }
 });
 

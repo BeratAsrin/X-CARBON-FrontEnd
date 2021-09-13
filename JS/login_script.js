@@ -1,15 +1,3 @@
-// dataUrl is used to determine the source of database.
-var isLocal = true;
-var dataUrl;
-var ipOfDevice = "111.111.1.1";
-if(isLocal == false ){
-  dataUrl = `${ipOfDevice}:8080`; // while not working on local
-  // default port of tomcat is 8080.
-}
-else{
-  dataUrl = "localhost:8080"; // localhost
-}
-
 let isItAdmin;
 function whoIsLogining(check){
   isItAdmin = Boolean(check == "true");
@@ -31,13 +19,14 @@ function postLoginInformation(){
     &&
     document.getElementById("password").value != ""
   ){
-    username = document.getElementById("username").value;
-    password = document.getElementById("password").value;
+      username = document.getElementById("username").value;
+      password = document.getElementById("password").value;
 
     sessionStorage.setItem("username",username);
     sessionStorage.setItem("password",password);
     sessionStorage.setItem("isItAdmin",isItAdmin);
-
+    
+    let dataUrl = sessionStorage.getItem("dataUrl");
     let xhr = new XMLHttpRequest();
     let url = `http://${dataUrl}/`;
 

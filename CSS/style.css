@@ -23,15 +23,13 @@
 }
 
 #navigation_bar{
-  background-color: #88B04B;
   padding-left: 0px;
   margin: 0px;
   height: 100vh;
 }
 
 #navigation_bar_ul{
-  color: white;
-  font-weight: bold;
+  color: black;
   padding-left: 5px;
   list-style-type:none;
 }
@@ -41,5 +39,9 @@
 }
 
 #navigation_bar_ul li a{
-  color: white;
+  color: inherit;
+}
+
+.green_to_white, #navigation_bar{
+  background-image: linear-gradient(rgba(136, 176, 75, 1), rgba(255, 255, 255, 1));
 }
