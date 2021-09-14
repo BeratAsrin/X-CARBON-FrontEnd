@@ -1,3 +1,6 @@
+html{
+  scroll-behavior: smooth;
+}
 .center{
   display: flex;
   align-items: center;  /*Aligns vertically center */
@@ -5,12 +8,15 @@
   height: 100vh;
 }
 
-#register_company_form{
-  background-color: #88B04B;
+#register_company_form, #delete_company_form,
+ #delete_information_get_div, #registered_organizations_div{
+  margin: auto;
+  padding: auto;
+  background-image: linear-gradient(rgba(118, 111, 87, 1),rgba(118, 111, 87, 0.3));
 }
 
-#delete_company_form{
-  background-color: #88B04B;
+.table tbody tr:hover{
+  color: white;
 }
 
 .special_hr{
@@ -26,16 +32,35 @@
   padding-left: 0px;
   margin: 0px;
   height: 100vh;
+  width: 1%;
+  display: block;
 }
 
 #navigation_bar_ul{
   color: black;
   padding-left: 5px;
   list-style-type:none;
+  display: none;
+}
+
+#navigation_bar:hover{
+  width: 30%;
+}
+
+#navigation_bar:hover #navigation_bar_ul{
+  display: block;
 }
 
 #navigation_bar_ul li{
   list-style-type:none;
+}
+
+#navigation_bar_ul li ul{
+  display: none;
+}
+
+#navigation_bar_ul li:hover ul{
+  display: block;
 }
 
 #navigation_bar_ul li a{
@@ -44,4 +69,22 @@
 
 .green_to_white, #navigation_bar{
   background-image: linear-gradient(rgba(136, 176, 75, 1), rgba(255, 255, 255, 1));
+}
+
+footer{
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+}
+
+#background_video{
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  z-index:-1;
+}
+
+.fontsize20px{
+  font-size: 20px;
 }
