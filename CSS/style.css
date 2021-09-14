@@ -28,12 +28,28 @@ html{
   font-weight:bold;
 }
 
+@keyframes navigation_bar_color_changer_reverse {
+  from{
+    background-color: white;
+  }
+  to{
+    background-color: #28a745;
+  }
+}
+
 #navigation_bar{
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
   padding-left: 0px;
   margin: 0px;
   height: 100vh;
   width: 1%;
   display: block;
+  animation-name: navigation_bar_color_changer_reverse;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: width 1s linear;
 }
 
 #navigation_bar_ul{
@@ -43,8 +59,21 @@ html{
   display: none;
 }
 
+@keyframes navigation_bar_color_changer {
+  from{
+    background-color: #28a745;
+  }
+  to{
+    background-color: white;
+  }
+}
+
 #navigation_bar:hover{
-  width: 30%;
+  animation-name: navigation_bar_color_changer;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  width: 25%;
+  transition: width 1s linear;
 }
 
 #navigation_bar:hover #navigation_bar_ul{
@@ -65,10 +94,6 @@ html{
 
 #navigation_bar_ul li a{
   color: inherit;
-}
-
-.green_to_white, #navigation_bar{
-  background-image: linear-gradient(rgba(136, 176, 75, 1), rgba(255, 255, 255, 1));
 }
 
 footer{

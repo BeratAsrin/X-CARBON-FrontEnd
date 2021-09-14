@@ -65,18 +65,16 @@ links.forEach(element => {
     if(element.subs.length != 0){
       subContent = "<ul>";
       element.subs.forEach(element => {
-          subContent += `<li><a href="${element.link}">${element.childText}</a></li>`;
+          subContent += `<li class='btn-block'><a class='btn btn-warning' href="${element.link}">${element.childText}</a></li>`;
       });
       subContent += "</ul>";
     }
     if(element.link != ""){
-      listUl.innerHTML += `<li><a href="${element.link}">${element.parentText} ${subContent}</li>`;
+      listUl.innerHTML += `<li class="btn btn-success btn-block text-left"><a href="${element.link}">${element.parentText} ${subContent}</li>`;
     }
     else{
-      listUl.innerHTML += `<li>${element.parentText} ${subContent}</li>`;
+      listUl.innerHTML += `<li class="btn btn-success btn-block text-left">${element.parentText} ${subContent}</li>`;
     }
 
   }
 });
-
-//sessionStorage.removeItem("isItAdmin"); sistemden çıkış yaparken sil.
