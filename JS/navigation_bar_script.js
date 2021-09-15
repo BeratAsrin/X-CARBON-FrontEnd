@@ -12,13 +12,13 @@ var links = [
         link: "",
         subs: [
             {
+                childText: "Delete Organization",
+                link: "../company-templates/delete_company_page.html"
+            },
+            {
                 childText: "Register Organization",
                 link: "../company-templates/register_company_page.html"
 
-            },
-            {
-                childText: "Delete Organization",
-                link: "../company-templates/delete_company_page.html"
             },
             {
                 childText: "Registered Organizations",
@@ -70,7 +70,7 @@ links.forEach(element => {
       subContent += "</ul>";
     }
     if(element.link != ""){
-      listUl.innerHTML += `<li class="btn btn-success btn-block text-left"><a href="${element.link}">${element.parentText} ${subContent}</li>`;
+      listUl.innerHTML += `<li class='btn-block text-white'><a class="btn btn-success btn-block text-left" href="${element.link}">${element.parentText} ${subContent}</li>`;
     }
     else{
       listUl.innerHTML += `<li class="btn btn-success btn-block text-left">${element.parentText} ${subContent}</li>`;
