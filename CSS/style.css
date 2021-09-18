@@ -8,11 +8,23 @@ html{
   height: 100vh;
 }
 
+#information_of_company{
+  background: #495057;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
+
 #register_company_form, #delete_company_form,
  #delete_information_get_div, #registered_organizations_div{
   margin: auto;
   padding: auto;
-  background-image: linear-gradient(rgba(118, 111, 87, 1),rgba(118, 111, 87, 0.3));
+  color: white;
+  background: #495057;
+}
+
+#organizations_table{
+  color: inherit;
 }
 
 .table tbody tr:hover{
@@ -23,10 +35,6 @@ html{
   border-top: 1px dashed white;
 }
 
-.information_text{
-  font-size: 20px;
-  font-weight:bold;
-}
 
 @keyframes navigation_bar_color_changer_reverse {
   from{
@@ -101,10 +109,6 @@ html{
   }
 }
 
-#navigation_bar_ul li:hover{
-  display: block;
-}
-
 #navigation_bar_ul li:hover ul{
   display: block;
   animation-name: increase_opacity_animation;
@@ -147,11 +151,6 @@ footer{
 .form-control{
   display: block;
   text-align: center;
-}
-
-#delete_information_get_div .form-control{
-  display: inline-block;
-  width: auto;
 }
 
 input::-webkit-outer-spin-button,

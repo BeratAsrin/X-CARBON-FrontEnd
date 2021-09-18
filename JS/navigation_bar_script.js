@@ -8,7 +8,7 @@ var links = [
     },
     {
         parentText: "Organizations",
-        show: true,
+        show: false,
         link: "",
         subs: [
             {
@@ -28,7 +28,7 @@ var links = [
     },
     {
         parentText: "Carbon Market",
-        show: true,
+        show: false,
         link: "",
         subs: [
             {
@@ -46,6 +46,13 @@ var links = [
         ]
     },
     {
+        parentText: "Information",
+        show: false,
+        link: "../information-template/information.html",
+        subs: [
+        ]
+    },
+    {
         parentText: "Exit",
         show: true,
         link: "../login-template/login_page.html",
@@ -54,8 +61,13 @@ var links = [
     }
 ];
 
-if(sessionStorage.getItem("isItAdmin") == "false"){ // localStorage stores the data in string format
-  links[1].show = false;
+if(sessionStorage.getItem("isItAdmin") == "true"){ // localStorage stores the data in string format
+  links[1].show = true;
+  links[2].show = true;
+}
+else if(sessionStorage.getItem("isItAdmin") == "false"){
+  links[2].show = true;
+  links[3].show = true;
 }
 
 let listUl = document.getElementById("navigation_bar_ul");

@@ -78,7 +78,7 @@ function registerNewCompany(){
 
 }
 
-function getCompany(organizationId,organizationTaxNumber,organizationName){
+function getCompany(organizationId,organizationTaxNumber,organizationName, callToDelete){
 
   let url = `http://${dataUrl}/company/get/`;
 
@@ -110,8 +110,13 @@ function getCompany(organizationId,organizationTaxNumber,organizationName){
         document.getElementById("information_organization_tax_number").value = company.taxNumber;
         document.getElementById("information_organization_mail").value = company.mail;
         document.getElementById("information_organization_type").value = company.registerType;
-        document.getElementById("delete_form_div").style.display = "none";
-        document.getElementById("delete_information_div").style.display = "flex";
+        if(callToDelete == true){
+          document.getElementById("delete_form_div").style.display = "none";
+          document.getElementById("delete_information_div").style.display = "flex";
+        }
+        else if(callToDelete == false){
+          document.getElementById("information_organization_password").value = company.password;
+        }
       }
 
     }
@@ -134,7 +139,7 @@ function searchToDelete(){
     alert("Please enter at least one information about company.")
   }
   else{
-    getCompany(organizationId, organizationTaxNumber, organizationName);
+    getCompany(organizationId, organizationTaxNumber, organizationName, true);
   }
 }
 

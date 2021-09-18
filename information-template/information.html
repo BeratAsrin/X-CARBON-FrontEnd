@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Information</title>
+  </head>
+  <body>
+    <script src="../JS/check_login_session.js" onload="checkOrganizationLogin()">
+    </script>
+
+    <div style="display:flex;">
+      <aside id="navigation_bar" class="jumbotron">
+        <ul id="navigation_bar_ul">
+          <script src="../JS/navigation_bar_script.js"></script>
+        </ul>
+      </aside>
+
+      <div class="center" style="flex-grow:1;">
+        <div id="information_of_company" class="jumbotron" style="display: block;">
+          <p style="font-size: 30px;">
+            ORGANIZATION INFORMATION
+          </p>
+          <hr class="special_hr">
+          <span>Organization ID: <input type="text" class="form-control" id="information_organization_id" value="---" readonly> </span>
+          <br>
+          <span>Organization Name: <input type="text" class="form-control" id="information_organization_name" value="---" readonly></span>
+          <br>
+          <span>Organization Tax Number: <input type="text" class="form-control" id="information_organization_tax_number" value="---" readonly></span>
+          <br>
+          <span>Organization E-Mail: <input type="text" class="form-control" id="information_organization_mail" value="---" readonly></span>
+          <br>
+          <span>Organization Type: <input type="text" class="form-control" id="information_organization_type" value="---" readonly></span>
+          <br>
+          <span>Organization Password: <input type="text" class="form-control" id="information_organization_password" value="---" readonly></span>
+          <hr class="special_hr">
+          <button class="btn btn-success btn-block" type="button" name="button">Update Information</button>
+        </div>
+      </div>
+    </div>
+
+      <div id="footer_div">
+        <script src="../JS/footer_creater.js" onload="create()">
+        </script>
+      </div>
+
+      <script src="../JS/company_script.js">
+      </script>
+
+      <script type="text/javascript">
+        getCompany("",sessionStorage.getItem("username"),"", false);
+      </script>
+  </body>
+</html>
