@@ -31,18 +31,13 @@ var links = [
         show: false,
         link: "",
         subs: [
-            {
-                childText: "Market Place",
-                link: "#"
-            },
-            {
-                childText: "Statics About Market",
-                link: "#"
-            },
-            {
-                childText: "Market Status and News",
-                link: "#"
-            }
+        ]
+    },
+    {
+        parentText: "Carbon Market Options",
+        show: false,
+        link: "../carbon-market-templates/carbon_market_options.html",
+        subs: [
         ]
     },
     {
@@ -62,12 +57,12 @@ var links = [
 ];
 
 if(sessionStorage.getItem("isItAdmin") == "true"){ // localStorage stores the data in string format
-  links[1].show = true;
-  links[2].show = true;
+  links[1].show = true; // organizations
+  links[3].show = true;// carbon market options
 }
 else if(sessionStorage.getItem("isItAdmin") == "false"){
-  links[2].show = true;
-  links[3].show = true;
+  links[2].show = true; // carbon market
+  links[4].show = true; // information
 }
 
 let listUl = document.getElementById("navigation_bar_ul");

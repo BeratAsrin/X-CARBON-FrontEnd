@@ -8,11 +8,12 @@ html{
   height: 100vh;
 }
 
-#information_of_company{
+#information_of_company, #carbon_market_options_div{
   background: #495057;
   color: white;
   font-style: italic;
   font-weight: bold;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,1)!important;
 }
 
 #register_company_form, #delete_company_form,
@@ -21,6 +22,7 @@ html{
   padding: auto;
   color: white;
   background: #495057;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,1)!important;
 }
 
 #organizations_table{
