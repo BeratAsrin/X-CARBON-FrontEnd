@@ -29,7 +29,6 @@ function registerNewCompany(){
   }
   else{
     let registerType = document.querySelector("input[name=register_type]:checked").value;
-    console.log(name,taxNumber,mail,password,registerType);
     // Create new xhr object
     let xhr = new XMLHttpRequest();
     let url = `http://${dataUrl}/company/register`;
@@ -65,12 +64,12 @@ function registerNewCompany(){
     // Converting JSON data to string
     let data = JSON.stringify({
       "organizationName": name,
-      "taxNumber": taxNumber,
+      "taxNumber": Number(taxNumber),
       "mail": mail,
       "registerType": registerType,
       "password": password
     });
-
+    
     // Sending data with the request
     xhr.send(data);
 

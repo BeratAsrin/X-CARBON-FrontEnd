@@ -31,13 +31,37 @@ var links = [
         show: false,
         link: "",
         subs: [
+          {
+              childText: "Create Certificates",
+              link: "../carbon-market-templates/create_certificates.html"
+          },
+          {
+              childText: "Requested Certificates",
+              link: "../carbon-market-templates/requested_certificates.html"
+          },
+          {
+              childText: "Owned Certificates",
+              link: "../carbon-market-templates/owned_certificates.html"
+          },
+          {
+              childText: "Buy X-Carbon Certificates",
+              link: "../carbon-market-templates/buy_certificates.html"
+          }
         ]
     },
     {
-        parentText: "Carbon Market Options",
+        parentText: "Carbon Market",
         show: false,
-        link: "../carbon-market-templates/carbon_market_options.html",
+        link: "",
         subs: [
+          {
+              childText: "Market Options",
+              link: "../carbon-market-templates/carbon_market_options.html"
+          },
+          {
+              childText: "Certificate Requests",
+              link: "#"
+          }
         ]
     },
     {
@@ -72,7 +96,7 @@ links.forEach(element => {
     if(element.subs.length != 0){
       subContent = "<ul>";
       element.subs.forEach(element => {
-          subContent += `<li class='btn-block'><a class='btn btn-warning' href="${element.link}">${element.childText}</a></li>`;
+          subContent += `<li class='btn-block'><a class='btn btn-warning btn-block' href="${element.link}">${element.childText}</a></li>`;
       });
       subContent += "</ul>";
     }
