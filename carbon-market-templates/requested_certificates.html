@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Requested Certificates</title>
+  </head>
+  <body onload="getRequestedCertificates()">
+    <!-- control the login session -->
+    <script src="../JS/check_login_session.js" onload="checkOrganizationLogin()">
+    </script>
+
+    <div style="display:flex;">
+      <aside id="navigation_bar" class="jumbotron">
+        <ul id="navigation_bar_ul">
+          <script src="../JS/navigation_bar_script.js"></script>
+        </ul>
+      </aside>
+
+      <div class="center" style="flex-grow:1;">
+        <div id="create_certificates_div" class="jumbotron">
+          <p class="text-center" style="font-size: 30px;">Requested Certificates</p>
+          <hr class="special_hr">
+          <table id="requested_certificates_table"
+          class="table table-hover table-borderless text-center">
+            <thead>
+              <tr>
+                <th>Request Process Id</th>
+                <th>Requested Certificates</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="requested_certificates_table_body" class="text-black">
+              <!-- JS KODU YAZILACAK -->
+            </tbody>
+          </table>
+          <hr class="special_hr">
+          <div class="text-center">
+            <button id="prev_page_button" class="btn btn-success" style="width:15vw" type="button" onclick="previousPage()">Previous Page</button>
+            <button id="next_page_button" class="btn btn-success" style="width:15vw" type="button" onclick="nextPage()">Next Page</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="footer_div">
+      <script src="../JS/footer_creater.js" onload="create()">
+      </script>
+    </div>
+
+    <script src="../JS/certificate_script.js"></script>
+    </body>
+
+  </body>
+</html>

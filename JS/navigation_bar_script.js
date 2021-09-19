@@ -46,6 +46,10 @@ var links = [
           {
               childText: "Buy X-Carbon Certificates",
               link: "../carbon-market-templates/buy_certificates.html"
+          },
+          {
+              childText: "Use X-Carbon Certificates",
+              link: "#"
           }
         ]
     },

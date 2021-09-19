@@ -26,7 +26,7 @@ html{
   box-shadow: 0 1rem 3rem rgba(0,0,0,1)!important;
 }
 
-#organizations_table, #owned_certificates_table{
+#organizations_table, #owned_certificates_table, #requested_certificates_table{
   color: inherit;
 }
 
